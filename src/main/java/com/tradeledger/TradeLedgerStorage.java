@@ -18,12 +18,13 @@ public class TradeLedgerStorage
     private static final String GROUP = "tradeledger";
     private static final String KEY = "recordedTradesV1";
     private final ConfigManager configManager;
-    private final Gson gson = new Gson();
+    private final Gson gson;
 
     @Inject
-    public TradeLedgerStorage(ConfigManager configManager)
+    public TradeLedgerStorage(ConfigManager configManager, Gson gson)
     {
         this.configManager = configManager;
+        this.gson = gson;
     }
 
     public LoadedData load()

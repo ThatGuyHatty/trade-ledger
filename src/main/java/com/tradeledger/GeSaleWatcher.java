@@ -25,14 +25,15 @@ public final class GeSaleWatcher
     private static final int MAX_SLOTS = 8;
 
     private final ConfigManager configManager;
-    private final Gson gson = new Gson();
+    private final Gson gson;
     private final Map<Integer, Checkpoint> checkpoints = new HashMap<>();
     private final Set<Integer> seenNonEmptyThisSession = new HashSet<>();
 
     @Inject
-    public GeSaleWatcher(ConfigManager configManager)
+    public GeSaleWatcher(ConfigManager configManager, Gson gson)
     {
         this.configManager = configManager;
+        this.gson = gson;
     }
 
     public void resetMemory()
